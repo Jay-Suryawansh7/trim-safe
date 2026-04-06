@@ -1,0 +1,25 @@
+{
+  "name": "trim-safe",
+  "version": "1.0.0",
+  "description": "Safe, drop-in replacement for the abandoned trim package. Fixed ReDoS vulnerability (CVE-2020-7753).",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "trim",
+    "string",
+    "whitespace",
+    "safe",
+    "regex",
+    "redos"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jay-Suryawansh7/trim-safe.git"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
