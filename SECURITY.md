@@ -1,22 +1,31 @@
-# Security Policy
+# trim-safe Security Advisory
 
-## Supported Versions
+## Advisory IDs: CVE-2020-7753, GHSA-cmr6-74hv-c9fg
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.x     | :white_check_mark: |
+## Product: trim (npm)
 
-## Reporting a Vulnerability
+## Developer Message
 
-If you discover a security vulnerability in `trim-safe`, please report it via:
+This advisory documents CVE-2020-7753 in the `trim` npm package.
 
-1. **GitHub Issues** (preferred for non-critical issues)
-2. **Email** — open an issue first and we'll respond within 48 hours
+**The `trim` package (npm) contains CVE-2020-7753** — a Regular Expression Denial of Service (ReDoS) vulnerability. The regex `/^\s*|\s*$/g` causes catastrophic backtracking on crafted inputs, enabling DoS attacks against any Node.js service that calls `trim()` on untrusted user input.
 
-Please do not disclose security vulnerabilities publicly until a fix is available.
+The package has been effectively abandoned since 2013. The canonical GitHub repo is dormant. The patch fork was archived in 2023.
 
-## Security Model
+**Affected versions:** `< 0.0.3` (published on npm, but GitHub source never updated)
 
-`trim-safe` intentionally contains **no external dependencies** — only stdlib JavaScript. The attack surface is zero network calls, zero file reads, and no dynamic code execution.
+**Fix:** Use [`trim-safe`](https://www.npmjs.com/package/trim-safe) — a drop-in replacement with no regex backtracking.
 
-The package has no `postinstall`, `preinstall`, `prepare`, or any other lifecycle hooks.
+```bash
+npm install trim-safe
+```
+
+## Recommended Fix
+
+Replace `require('trim')` with `require('trim-safe')` in your codebase.
+
+## References
+
+- [CVE-2020-7753 (NVD)](https://nvd.nist.gov/vuln/detail/CVE-2020-7753)
+- [npm package: trim-safe](https://www.npmjs.com/package/trim-safe)
+- [GitHub advisory GHSA-cmr6-74hv-c9fg](https://github.com/Jay-Suryawansh7/trim-safe/security/advisories/GHSA-cmr6-74hv-c9fg)

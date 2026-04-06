@@ -6,7 +6,7 @@ Safe, drop-in replacement for the abandoned [`trim`](https://www.npmjs.com/packa
 
 The `trim` package (1M+ weekly downloads) has been effectively abandoned since 2013. Its canonical GitHub repo is dormant, the patch fork was archived in 2023, and the original source was never updated with the CVE fix.
 
-The package contains **CVE-2020-7753** — a ReDoS vulnerability in the regex `/^\s*|\s*$/g`. An attacker can craft an input string that causes catastrophic regex backtracking, consuming all CPU and hanging your process.
+The package contains **CVE-2020-7753** / **GHSA-cmr6-74hv-c9fg** — a ReDoS vulnerability (CVSS 7.5 HIGH) in the regex `/^\s*|\s*$/g`. An attacker can craft an input string that causes catastrophic regex backtracking, consuming all CPU and hanging your process.
 
 `trim-safe` fixes the vulnerability using a loop-based approach with no regex backtracking. Same API, zero security debt.
 
