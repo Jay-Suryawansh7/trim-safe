@@ -1,6 +1,6 @@
 {
   "name": "trim-safe",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Safe, drop-in replacement for the abandoned trim package. Fixed ReDoS vulnerability (CVE-2020-7753).",
   "main": "index.js",
   "types": "index.d.ts",
