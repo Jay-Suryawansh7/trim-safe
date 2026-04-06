@@ -4,7 +4,8 @@
   "description": "Safe, drop-in replacement for the abandoned trim package. Fixed ReDoS vulnerability (CVE-2020-7753).",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "postinstall": "node scripts/migrate-check.js"
   },
   "keywords": [
     "trim",

@@ -16,6 +16,19 @@ The package contains **CVE-2020-7753** — a ReDoS vulnerability in the regex `/
 npm install trim-safe
 ```
 
+When installed into a project, `trim-safe` automatically checks your dependency tree. If it finds the vulnerable `trim` package, it prints a migration prompt:
+
+```
+⚠  VULNERABLE: trim (CVE-2020-7753) found in dependency tree
+  3 packages still depend on the vulnerable trim package.
+
+  Migrate:
+    npm install trim-safe
+    # in your code: require('trim-safe') instead of require('trim')
+```
+
+No extra setup needed.
+
 ## Usage
 
 ```js
